@@ -350,3 +350,5 @@
 2023-10-13-15:29:17 INFO  Item is selected
 2023-10-13-15:29:17 INFO  BaseTest : tearDown :searchItemTC_02 Tear down called
 2023-10-13-15:29:17 INFO  BaseTest : remove Driver : removed driver
+2023-10-14-13:25:55 INFO  BaseTest : setDriver : Spark report configured
+2023-11-04-12:32:51 INFO  BaseTest : setDriver : Spark report configured

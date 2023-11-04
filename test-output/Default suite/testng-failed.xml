@@ -6,6 +6,8 @@
       <class name="ecommercetest.EcommerceTest">
         <methods>
           <include name="setup"/>
+          <include name="SwipeActionTC_06"/>
+          <include name="SelectCategoryTC_05"/>
           <include name="tearDown"/>
           <include name="setDriver"/>
           <include name="rotateScreenTC_04"/>
