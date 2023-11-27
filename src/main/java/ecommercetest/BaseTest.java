@@ -40,9 +40,7 @@ public class BaseTest {
 		capabilities.setCapability("deviceName", VootConstants.DEVICE_NAME);
 		capabilities.setCapability("platformName", VootConstants.PLATFORM_NAME);
 		capabilities.setCapability("platformVersion", VootConstants.PLATFORM_VERSION);
-		capabilities.setCapability("UnlockType", VootConstants.UNLOCK_TYPE);
-		capabilities.setCapability("UnlockKey", VootConstants.UNLOCK_KEY);
-
+	
 		driver = new AppiumDriver(new URL(VootConstants.URL_HUB), capabilities);
 
 		logger.info("App Launched");

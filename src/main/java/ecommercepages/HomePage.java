@@ -39,60 +39,6 @@ public class HomePage {
 	@AndroidFindBy(id="com.solodroid.solomerce:id/search_src_text")
 	public WebElement searchText;
 	
-	@AndroidFindBy(id="com.solodroid.solomerce:id/category_image")
-	public WebElement appleWatch;
-	
-	@AndroidFindBy(id="com.solodroid.solomerce:id/btn_add_cart")
-	public WebElement addTocartBtn;
-	
-	@AndroidFindBy(id="com.solodroid.solomerce:id/dialogTitle")
-	public MobileElement numberOfOrder;
-	
-	@AndroidFindBy(id="android:id/button1")
-	public MobileElement addBtn;
-	
-	@AndroidFindBy(id="com.solodroid.solomerce:id/cart")
-	public MobileElement addTocartBox;
-	
-	@AndroidFindBy(id="com.solodroid.solomerce:id/product_name")
-	public MobileElement addedProduct;
-	
-	@AndroidFindBy(id="com.solodroid.solomerce:id/btn_checkout")
-	public MobileElement checkout;
-	
-	@AndroidFindBy(id="com.solodroid.solomerce:id/edt_name")
-	public MobileElement yourname;
-	
-	@AndroidFindBy(id="com.solodroid.solomerce:id/edt_email")
-	public MobileElement yourEmail;
-	
-	@AndroidFindBy(id="com.solodroid.solomerce:id/edt_phone")
-	public MobileElement phone;
-	
-	@AndroidFindBy(id="com.solodroid.solomerce:id/edt_address")
-	public MobileElement yourAddress;
-	
-	@AndroidFindBy(id="com.solodroid.solomerce:id/spinner")
-	public MobileElement shipping;
-	
-	@AndroidFindBy(id="android:id/text1")
-	public List<MobileElement> shippingOptions;
-	
-	@AndroidFindBy(id="com.solodroid.solomerce:id/btn_submit_order")
-	public MobileElement processCheckout;
-	
-	@AndroidFindBy(id="android:id/button1")
-	public MobileElement confirmCheckout;
-	
-	@AndroidFindBy(id="android:id/alertTitle")
-	public MobileElement congratsPopup;
-	
-	@AndroidFindBy(id="android:id/button1")
-	public MobileElement okCongrats;
-	
-	@AndroidFindBy(id="com.solodroid.solomerce:id/edt_comment")
-	public MobileElement comment;
-	
 	@AndroidFindBy(id="com.solodroid.solomerce:id/nav_category")
 	public MobileElement categoryBtn;
 	
@@ -119,8 +65,8 @@ public class HomePage {
 		WaitConstants.waitForElement(driver);
 		if(yourName.isDisplayed()) {
 			editBtn.click();
+			}
 		}
-	 }
 
 	public void searchItem() {
 		if(searchBtn.isDisplayed()) {
@@ -128,66 +74,19 @@ public class HomePage {
 			WaitConstants.waitForElement(driver);
 			searchText.sendKeys("Watch");
 			driver.hideKeyboard();
-	}
+			}
 		
-	}	
+		}	
 	public void rotateScreen() {
 		driver.rotate(ScreenOrientation.LANDSCAPE);
 		WaitConstants.waitForElement(driver);
 		driver.rotate(ScreenOrientation.PORTRAIT);
-	}
-	
-	/* public void itemAddedintheCart() {
-		   WaitConstants.waitForElement(driver);
-		   if(appleWatch.isDisplayed()) {
-		   addTocartBtn.click();
-		   }
-		   numberOfOrder.sendKeys("1");
-		   addBtn.click();
-		   WaitConstants.waitForElement(driver);
-		   addTocartBox.click();
-		   
-	  }*/
-	   
-	
-	
-	
-	public void clickAddToCart() {
-		addTocartBtn.click();
-	}
-	public void sendOrders(String count) {
-		numberOfOrder.sendKeys(count);
-	}
-	public void addToCart() {
-		addBtn.click();
-	}
-	public void clickOnCart() {
-		addTocartBox.click();
-	}
-	public String getCartText() {
-		return addedProduct.getText();
-	}
-	public void checkOut() {
-		checkout.click();
-	}
-	
-	
-	
-	
-/*	public boolean verifyproductintheCart() {
-		boolean isproductVerified = false;
-		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-		if(addTocartBox.isDisplayed()) {
-			addTocartBox.click();
+		
 		}
-		if(addedProduct.isDisplayed()) {
-			isproductVerified = true;
-		}
-		
-		return isproductVerified;
-		
-		
-		}*/
 	
+	public static void hideKeyBoard(AppiumDriver driver) {
+		driver.hideKeyboard();
+		
+		}
 	
 	}

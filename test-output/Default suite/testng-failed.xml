@@ -3,20 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="ecommercetest.EcommerceTest">
+      <class name="demo.EcommerceTest">
         <methods>
-          <include name="setup"/>
-          <include name="SwipeActionTC_06"/>
-          <include name="SelectCategoryTC_05"/>
-          <include name="tearDown"/>
-          <include name="setDriver"/>
-          <include name="rotateScreenTC_04"/>
-          <include name="selectProfileTC_01"/>
-          <include name="removeDriver"/>
-          <include name="searchItemTC_02"/>
-          <include name="Launch"/>
+          <include name="UnlockDeviceTC_005"/>
+          <include name="SelectProfileTC_002"/>
+          <include name="LaunchAppTC_001"/>
         </methods>
-      </class> <!-- ecommercetest.EcommerceTest -->
+      </class> <!-- demo.EcommerceTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

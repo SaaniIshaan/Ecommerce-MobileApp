@@ -6,11 +6,13 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import constants.WaitConstants;
+import ecommercepages.CheckoutPage;
 import ecommercepages.HomePage;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
@@ -29,7 +31,7 @@ public class EcommerceTest extends BaseTest{
 	}
 	
 
-	@Test(priority = 3)
+//	@Test(priority = 3)
 	public void selectProfileTC_01() {
 		
 		AppiumDriver driver = BaseTest.getDriver();
@@ -38,10 +40,9 @@ public class EcommerceTest extends BaseTest{
 		homepage.selectProfile();
 		logger.info("select profile successful");
 		
-	}		
-	 
+	}	
 	
-	@Test(priority = 1)
+	// @Test(priority = 1)
 	public void searchItemTC_02() {
 
 		AppiumDriver driver = BaseTest.getDriver();
@@ -50,42 +51,65 @@ public class EcommerceTest extends BaseTest{
 		homepage.searchItem();
 		logger.info("Item is selected");
 	}
-
-		
-	@Test(priority = 3)
+	 
+//	 @Test(priority = 2)
 	public void rotateScreenTC_04() {
 		
 		AppiumDriver driver = BaseTest.getDriver();
 		HomePage homepage = new HomePage(driver);
 		homepage.rotateScreen();
 	}
-	
-	@Test 
-	  public void SelectCategoryTC_05() throws InterruptedException {
-		  
-		  driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-		  
-		  WebElement category =  driver.findElement(By.id("com.solodroid.solomerce:id/nav_category"));
-		  Point categotysize = category.getLocation();
-		  
-			System.out.println(categotysize.x);
-			System.out.println(categotysize.y); 
-			
-			TouchAction action = new TouchAction<>(driver);
-			action.tap(PointOption.point(categotysize.x, categotysize.y)).perform();
-	}
-	
-	 @Test 
-	  public void SwipeActionTC_06() throws InterruptedException {
-		  
-		  driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-		  WebElement search = driver.findElement(By.id("com.solodroid.solomerce:id/search"));
-		  
-		  TouchAction  swipeAction = new TouchAction<>(driver);
-		  swipeAction.press(PointOption.point( 900, 1800)).waitAction().moveTo(PointOption.point(70, 1800)).release().perform();
-		  Thread.sleep(5000);
-		  swipeAction.press(PointOption.point(70, 1800)).waitAction().moveTo(PointOption.point( 900, 1800)).release().perform();
-		  
+	 @Test(priority = 0)
+	 public void selectproduct() {
+		 AppiumDriver driver = BaseTest.getDriver();
+		 CheckoutPage checkoutpage = new CheckoutPage(driver);
+		 checkoutpage.clickonCategory();
+		 logger.info("category is clicked");
+		 checkoutpage.selectElectronicsandGadgets();
+		 logger.info("product is displayed");
+		 checkoutpage.selectSamsungPhone();
+		 logger.info("Samsung phone is selected");
+		 checkoutpage.clickAddToCart();
+		 logger.info("add to cartbtn is clicked ");
+		 checkoutpage.sendNoOfOrders("1");
+		 logger.info("1 item");
+		 checkoutpage.setAddtoCart();
+		 logger.info("one phone added to the cart");
+		 checkoutpage.clickOnCart();
+		 logger.info("clicked on cart");
+		 Assert.assertEquals(checkoutpage.getCartText(),"Samsung Galaxy S10 - Black");
+		 logger.info("added product in cart is verified");
+		 checkoutpage.checkOut();
+		 logger.info("checkout is clicked");
+		 checkoutpage.enterName("Monika Gupta");
+		 logger.info("entered name");
+		 checkoutpage.enterEmailId("mansi@hon.com");
+		 logger.info("entered email");
+		 checkoutpage.enterPhoneNumber("3109363288");
+		 logger.info("entered phoneNumber");
+		 checkoutpage.enterValidAddress("3649,garnet st,apt 254");
+		 logger.info("entered valid email");
+		 HomePage.hideKeyBoard(driver);
+		 logger.info("keyboard is hidden");
+		 checkoutpage.clickDropDown(); 
+		 logger.info("dropdown is displayed");
+		 checkoutpage.selectShippingOption("FedEx");
+		 logger.info("option is selected");
+	//	 HomePage.hideKeyBoard(driver);
+	//	 checkoutpage.giveComment("good");
+		 checkoutpage.clickOnCheckout();
+		 logger.info("checkout process started");
+		 checkoutpage.clickCofirmCheckout();
+		 logger.info("checkout confirmed");
+		 Assert.assertEquals(checkoutpage.getCongratsMsg(),"Please wait");
+		 logger.info("Assertion msg is successful");
+		 checkoutpage.clickOnCongrats();
+		 logger.info("congrats msg is accepted");
+		 HomePage.hideKeyBoard(driver);
+		 logger.info("keyboard is hidden");
+	 
 	 }
+	 
+	 
 }	
 	

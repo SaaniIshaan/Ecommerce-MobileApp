@@ -24,9 +24,9 @@ public class CommonUtils {
 		
 		String path = FileConstants.SCREEN_SHOT_PATH;
 		TakesScreenshot screen = (TakesScreenshot)driver;
-		File src = screen.getScreenshotAs(OutputType.FILE);
+		File source = screen.getScreenshotAs(OutputType.FILE);
 		File destination = new File(path);
-		FileUtils.copyFile(src, destination);
+		FileUtils.copyFile(source, destination);
 		
 		return path;
 	}

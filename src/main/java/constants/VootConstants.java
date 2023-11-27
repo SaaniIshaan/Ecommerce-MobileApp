@@ -8,6 +8,6 @@ public class VootConstants {
 	public static final String PLATFORM_VERSION = "13";
 	public static final String DEVICE_NAME = "Samsung";
 	public static final String URL_HUB = "http://127.0.0.1:4723/wd/hub";
-	public static final String UNLOCK_TYPE = "pin";
-	public static final String UNLOCK_KEY = "17293";
+//	public static final String UNLOCK_TYPE = "pin";
+//	public static final String UNLOCK_KEY = "17293";
 }
